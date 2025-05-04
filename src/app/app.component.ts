@@ -4,6 +4,7 @@ import { SignInComponent } from './features/auth/sign-in/sign-in.component';
 import { ProfileComponent } from './features/auth/profile/profile.component';
 import { ThanksComponent } from './features/auth/thanks/thanks.component';
 import { MainComponent } from './features/jurnal/main/main.component';
+import { JurnalComponent } from './features/jurnal/jurnal/jurnal.component';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +14,7 @@ import { MainComponent } from './features/jurnal/main/main.component';
     ProfileComponent,
     ThanksComponent,
     MainComponent,
+    JurnalComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
