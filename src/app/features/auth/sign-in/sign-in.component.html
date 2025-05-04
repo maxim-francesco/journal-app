@@ -1,27 +1,109 @@
 <div>
-  <!-- Logo -->
-  <h1>Mynd</h1>
-</div>
-
-<div>
-  <h1>Keep Your Mind Clear</h1>
-  <h2>Register or sign in and we'll get started.</h2>
-</div>
-
-<div>
-  <div>
-    <button>Sign in with Email</button>
+  <div class="flex justify-center">
+    <!-- Logo -->
+    <h1 class="text-4xl font-extrabold mt-2 text-purple-500">Mynd</h1>
   </div>
-  <div>
-    <h1>OR</h1>
-  </div>
-  <div>
-    <button>Sign in with Apple</button>
-    <button>Sign in with Google</button>
-    <button>Sign in with Facebook</button>
-  </div>
-</div>
 
-<div>
-  <h1>I accept Mynd Terms of Use and Privacy Policy</h1>
+  <!-- sign in method -->
+  <div class="hidden">
+    <div class="text-center mt-7">
+      <h1 class="text-2xl font-semibold tracking-tighter">
+        Capture Daily Thoughts, Organize Memories, Craft Your Inner Story.
+      </h1>
+      <h2 class="text-sm text-gray-500 mt-2">
+        Register or sign in and we'll get started.
+      </h2>
+    </div>
+
+    <div class="flex flex-col justify-center mx-5 mt-7 space-y-5">
+      <input
+        type="text"
+        class="rounded-full p-3 border text-center"
+        placeholder="Enter your email"
+      />
+      <button class="rounded-full p-4 border text-white bg-black">
+        <div class="flex justify-center">
+          <h1 class="my-auto">Sign in with Email</h1>
+        </div>
+      </button>
+      <h1 class="text-center text-gray-500">OR</h1>
+      <button class="rounded-full p-3 border">
+        <div class="flex justify-center">
+          <img src="/assets/apple-icon.png" alt="apple icon" class="h-7 w-7" />
+          <h1 class="my-auto ml-2">Sign in with Apple</h1>
+        </div>
+      </button>
+      <button class="rounded-full p-3 border border-red-500">
+        <div class="flex justify-center">
+          <img src="/assets/gmail-icon.png" alt="gmail icon" class="h-7 w-7" />
+          <h1 class="my-auto ml-2">Sign in with Google</h1>
+        </div>
+      </button>
+      <button class="rounded-full p-3 border border-blue-500">
+        <div class="flex justify-center">
+          <img
+            src="/assets/facebook-icon.png"
+            alt="apple icon"
+            class="h-6 w-6"
+          />
+          <h1 class="my-auto ml-2">Sign in with Facebook</h1>
+        </div>
+      </button>
+    </div>
+
+    <div class="text-center pt-10 text-sm text-gray-500">
+      <h1>
+        I accept Mynd
+        <span class="underline underline-offset-3">Terms of Use</span> and
+        <span class="underline underline-offset-3">Privacy Policy</span>
+      </h1>
+    </div>
+  </div>
+
+  <!-- email way, set password -->
+  <div class="hidden">
+    <div class="text-center mt-7">
+      <h1 class="text-3xl font-semibold tracking-tighter">Choose a password</h1>
+      <h2 class="text-sm text-gray-500 mt-2">
+        Input your password for access your account
+      </h2>
+    </div>
+
+    <div class="flex flex-col justify-center mx-5 mt-7 space-y-5">
+      <input
+        type="text"
+        class="rounded-full p-3 border text-center"
+        placeholder="Enter your email"
+      />
+      <button class="rounded-full p-4 border text-white bg-black">
+        <div class="flex justify-center">
+          <h1 class="my-auto">Submit</h1>
+        </div>
+      </button>
+    </div>
+  </div>
+
+  <!-- password set, set pin -->
+  <div class="">
+    <div class="text-center mt-7">
+      <h1 class="text-3xl font-semibold tracking-tighter">Choose a PIN</h1>
+      <h2 class="text-sm text-gray-500 mt-2">
+        Make your account safety with PIN
+      </h2>
+    </div>
+
+    <div class="flex flex-col justify-center mx-5 mt-7 space-y-5">
+      <input
+        type="text"
+        class="rounded-full p-3 border text-center"
+        placeholder="Enter your PIN"
+      />
+      <button class="rounded-full p-4 border text-white bg-black">
+        <div class="flex justify-center">
+          <h1 class="my-auto">Submit</h1>
+        </div>
+      </button>
+      <h1 class="text-center text-gray-500">I'll do this later</h1>
+    </div>
+  </div>
 </div>
