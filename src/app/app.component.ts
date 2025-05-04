@@ -3,10 +3,17 @@ import { RouterOutlet } from '@angular/router';
 import { SignInComponent } from './features/auth/sign-in/sign-in.component';
 import { ProfileComponent } from './features/auth/profile/profile.component';
 import { ThanksComponent } from './features/auth/thanks/thanks.component';
+import { MainComponent } from './features/jurnal/main/main.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, SignInComponent, ProfileComponent, ThanksComponent],
+  imports: [
+    RouterOutlet,
+    SignInComponent,
+    ProfileComponent,
+    ThanksComponent,
+    MainComponent,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
