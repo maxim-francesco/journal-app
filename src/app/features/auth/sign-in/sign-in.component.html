@@ -1,11 +1,10 @@
 <div>
   <div class="flex justify-center">
-    <!-- Logo -->
     <h1 class="text-4xl font-extrabold mt-2 text-purple-500">Mynd</h1>
   </div>
 
-  <!-- sign in method -->
-  <div class="">
+  @if(showSignIn){
+  <div>
     <div class="text-center mt-7">
       <h1 class="text-2xl font-bold tracking-tighter">
         Capture Daily Thoughts, Organize Memories, Craft Your Inner Story.
@@ -17,11 +16,17 @@
 
     <div class="flex flex-col justify-center mx-5 mt-7 space-y-5">
       <input
-        type="text"
+        id="email"
+        name="email"
+        type="email"
         class="rounded-full p-3 border text-center"
         placeholder="Enter your email"
+        [(ngModel)]="email"
       />
-      <button class="rounded-full p-4 border text-white bg-black">
+      <button
+        class="rounded-full p-4 border text-white bg-black"
+        (click)="goToPassword()"
+      >
         <div class="flex justify-center">
           <h1 class="my-auto">Sign in with Email</h1>
         </div>
@@ -49,9 +54,10 @@
           <h1 class="my-auto ml-2">Sign in with Facebook</h1>
         </div>
       </button>
+      <button class="text-gray-500">Already have an account ?</button>
     </div>
 
-    <div class="text-center pt-10 text-sm text-gray-500">
+    <div class="text-center pt-3 text-sm text-gray-500">
       <h1>
         I accept Mynd
         <span class="underline underline-offset-3">Terms of Use</span> and
@@ -59,9 +65,8 @@
       </h1>
     </div>
   </div>
-
-  <!-- email way, set password -->
-  <div class="hidden">
+  } @if(showSetPassword){
+  <div>
     <div class="text-center mt-7">
       <h1 class="text-3xl font-semibold tracking-tighter">Choose a password</h1>
       <h2 class="text-sm text-gray-500 mt-2">
@@ -71,11 +76,17 @@
 
     <div class="flex flex-col justify-center mx-5 mt-7 space-y-5">
       <input
-        type="text"
+        id="password"
+        name="password"
+        type="password"
         class="rounded-full p-3 border text-center"
-        placeholder="Enter your email"
+        placeholder="Password"
+        [(ngModel)]="password"
       />
-      <button class="rounded-full p-4 border text-white bg-black">
+      <button
+        class="rounded-full p-4 border text-white bg-black"
+        (click)="goToPin()"
+      >
         <div class="flex justify-center">
           <h1 class="my-auto">Submit</h1>
         </div>
@@ -83,8 +94,8 @@
     </div>
   </div>
 
-  <!-- password set, set pin -->
-  <div class="hidden">
+  } @if(showSetPin){
+  <div>
     <div class="text-center mt-7">
       <h1 class="text-3xl font-semibold tracking-tighter">Choose a PIN</h1>
       <h2 class="text-sm text-gray-500 mt-2">
@@ -106,4 +117,6 @@
       <h1 class="text-center text-gray-500">I'll do this later</h1>
     </div>
   </div>
+
+  }
 </div>
