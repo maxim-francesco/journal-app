@@ -1,11 +1,9 @@
 export const environment = {
-  production: false,
-  firebaseConfig: {
-    apiKey: 'YOUR_API_KEY',
-    authDomain: 'YOUR_AUTH_DOMAIN',
-    projectId: 'YOUR_PROJECT_ID',
-    storageBucket: 'YOUR_STORAGE_BUCKET',
-    messagingSenderId: 'YOUR_MESSAGING_SENDER_ID',
-    appId: 'YOUR_APP_ID',
-  },
+  apiKey: 'AIzaSyCrU9BLkvh6o2dV7TSH9ve5xLovB1lahoI',
+  authDomain: 'mynd-eb34e.firebaseapp.com',
+  projectId: 'mynd-eb34e',
+  storageBucket: 'mynd-eb34e.firebasestorage.app',
+  messagingSenderId: '499368458637',
+  appId: '1:499368458637:web:ce7c5469018fe205f3a5c4',
+  measurementId: 'G-86R3HEV1GJ',
 };

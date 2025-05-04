@@ -5,19 +5,13 @@ import { AuthService } from '../../../core/auth/auth.service';
   providedIn: 'root',
 })
 export class SignInService {
-  email!: string;
-  password!: string;
   errorMessage: string = '';
   private authService = inject(AuthService);
 
-  async signUp() {
+  async signUp(email: string, password: string) {
     try {
-      await this.authService.signUpWithEmailAndPassword(
-        this.email,
-        this.password
-      );
+      await this.authService.signUpWithEmailAndPassword(email, password);
       console.log('Sign up cu succes!');
-      // Redirecționează utilizatorul
     } catch (error: any) {
       this.errorMessage = error.message;
     }

@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { SignInService } from './sign-in.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -9,6 +10,8 @@ import { Component } from '@angular/core';
   styleUrl: './sign-in.component.css',
 })
 export class SignInComponent {
+  private signInService = inject(SignInService);
+
   showSignIn: boolean = true;
   showSetPassword: boolean = false;
   showSetPin: boolean = false;
@@ -23,7 +26,7 @@ export class SignInComponent {
   }
 
   goToPin() {
-    console.log('here boss:', this.email, this.password);
+    this.signInService.signUp(this.email, this.password);
 
     this.showSignIn = false;
     this.showSetPassword = false;
