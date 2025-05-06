@@ -25,6 +25,9 @@ export class AuthService {
         email,
         password
       );
+      console.log('sunt aici');
+      console.log(userCredential);
+
       return userCredential.user;
     } catch (error) {
       console.error('Eroare la sign up:', error);

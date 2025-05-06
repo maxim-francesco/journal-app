@@ -5,22 +5,18 @@ import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root',
 })
-export class SignInService {
+export class LogInService {
   errorMessage: string = '';
   private authService = inject(AuthService);
   private router = inject(Router);
 
-  async signUp(email: string, password: string) {
+  async logIn(email: string, password: string) {
     try {
-      await this.authService.signUpWithEmailAndPassword(email, password);
+      await this.authService.signInWithEmailAndPassword(email, password);
       this.router.navigate(['/main']);
-      console.log('Sign up cu succes!');
+      console.log('Log In cu succes!');
     } catch (error: any) {
       this.errorMessage = error.message;
     }
-  }
-
-  get getUserId() {
-    return this.authService.getCurrentUser();
   }
 }

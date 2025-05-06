@@ -17,6 +17,7 @@
         type="email"
         class="rounded-full p-3 border text-center"
         placeholder="Enter your email"
+        [(ngModel)]="email"
       />
       <input
         id="password"
@@ -24,8 +25,12 @@
         type="password"
         class="rounded-full p-3 border text-center"
         placeholder="Enter your password"
+        [(ngModel)]="password"
       />
-      <button class="rounded-full p-4 border text-white bg-black">
+      <button
+        class="rounded-full p-4 border text-white bg-black"
+        (click)="logIn()"
+      >
         <div class="flex justify-center">
           <h1 class="my-auto">Log In</h1>
         </div>
