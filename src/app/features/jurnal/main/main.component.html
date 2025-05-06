@@ -23,7 +23,11 @@
 
   <div class="p-4 space-x-10">
     @for(journal of journals; track journal.id){
-    <app-card></app-card>
+    <app-card
+      [title]="journal.title"
+      [date]="journal.date!"
+      (click)="goToPage(journal)"
+    ></app-card>
     }
   </div>
 </div>

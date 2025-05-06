@@ -5,4 +5,10 @@ import { Journal } from '../services/jurnal.model';
 @Injectable({
   providedIn: 'root',
 })
-export class MainService {}
+export class MainService {
+  selectedJournal?: Journal;
+
+  setJournal(journal: Journal) {
+    this.selectedJournal = journal;
+  }
+}

@@ -1,6 +1,6 @@
 <div class="h-screen">
   <div class="flex justify-between p-5 mx-5">
-    <div><-</div>
+    <div (click)="goBack()"><-</div>
     <div class="text-xl">Create Journal</div>
     <div>...</div>
   </div>
@@ -13,7 +13,7 @@
     </div>
   </div>
   <div class="p-5">
-    <h1 class="text-4xl">Cycling and enjoy the city view</h1>
+    <h1 class="text-4xl">{{ journal?.title }}</h1>
   </div>
   <div class="p-5">
     <textarea name="" id="" class="h-screen w-full text-2xl"></textarea>
