@@ -20,6 +20,7 @@ export class JurnalComponent {
 
   createNewJurnal() {
     this.jurnalService.createNewJurnal(this.title!, this.date!, 'a');
+    this.router.navigate(['./main']);
   }
 
   goBack() {
