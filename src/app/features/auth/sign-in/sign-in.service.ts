@@ -16,4 +16,8 @@ export class SignInService {
       this.errorMessage = error.message;
     }
   }
+
+  get getUserId() {
+    return this.authService.getCurrentUser();
+  }
 }

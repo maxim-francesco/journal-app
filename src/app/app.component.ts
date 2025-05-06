@@ -6,6 +6,7 @@ import { ThanksComponent } from './features/auth/thanks/thanks.component';
 import { MainComponent } from './features/jurnal/main/main.component';
 import { JurnalComponent } from './features/jurnal/jurnal/jurnal.component';
 import { PageComponent } from './features/jurnal/page/page.component';
+import { LogInComponent } from './features/auth/log-in/log-in.component';
 
 @Component({
   selector: 'app-root',
@@ -17,6 +18,7 @@ import { PageComponent } from './features/jurnal/page/page.component';
     MainComponent,
     JurnalComponent,
     PageComponent,
+    LogInComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
