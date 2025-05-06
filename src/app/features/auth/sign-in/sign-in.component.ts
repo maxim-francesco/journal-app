@@ -4,7 +4,7 @@ import { Component, inject } from '@angular/core';
 import { SignInService } from './sign-in.service';
 import { RealtimeDatabaseService } from '../../../core/realtime-database.service';
 import { Router } from '@angular/router';
-import { user } from '@angular/fire/auth';
+import { User, user } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-sign-in',
@@ -25,20 +25,22 @@ export class SignInComponent {
   password: string = '';
   pin: string = '';
 
+  user?: User;
+
   goToPassword() {
     this.showSignIn = false;
     this.showSetPassword = true;
   }
 
-  goToPin() {
-    this.signInService.signUp(this.email, this.password);
+  async goToPin() {
+    this.user = await this.signInService.signUp(this.email, this.password);
     this.showSignIn = false;
     this.showSetPassword = false;
     this.showSetPin = true;
   }
 
   goToMain() {
-    this.realtimeDatabase.add(`${this.email.split('@')[0]}/pin/`, this.pin);
+    this.realtimeDatabase.add(`${this.user!.uid}/pin/`, this.pin);
     this.router.navigate(['/main']);
   }
 

@@ -6,6 +6,7 @@ import {
   signOut,
   user,
   onAuthStateChanged,
+  User,
 } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { Observable, BehaviorSubject } from 'rxjs';
@@ -58,7 +59,7 @@ export class AuthService {
   async signUpWithEmailAndPassword(
     email: string,
     password: string
-  ): Promise<any> {
+  ): Promise<User> {
     try {
       const userCredential = await createUserWithEmailAndPassword(
         this.auth,
@@ -66,7 +67,6 @@ export class AuthService {
         password
       );
       const user = userCredential.user;
-      console.log('User signed up:', user.uid); // Log the user ID
       if (isPlatformBrowser(this.platformId)) {
         localStorage.setItem('currentUser', JSON.stringify(user)); // Save user to localStorage
       }
@@ -89,7 +89,6 @@ export class AuthService {
         password
       );
       const user = userCredential.user;
-      console.log('User signed in:', user.uid); // Log the user ID
       if (isPlatformBrowser(this.platformId)) {
         localStorage.setItem('currentUser', JSON.stringify(user)); // Save user to localStorage
       }

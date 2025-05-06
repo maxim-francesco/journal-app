@@ -1,22 +1,26 @@
 <div class="h-screen bg-purple-900 text-white">
   <div class="flex justify-between p-5 mx-5">
-    <div><-</div>
+    <div (click)="goBack()"><-</div>
     <div class="text-xl">Create Journal</div>
     <div>...</div>
   </div>
   <div class="flex flex-col">
     <textarea
-      name=""
-      id=""
+      name="title"
+      id="title"
       rows="3"
       cols="10"
       placeholder="Cycling and enjoy the city view"
       class="text-5xl p-8 h-[250px] w-4/5"
+      [(ngModel)]="title"
     ></textarea>
     <div class="flex p-3 text-gray-400 text-lg">
       <input
+        id="date"
+        name="date"
         type="date"
         class="w-[30px] [&::-webkit-datetime-edit]:hidden [&::-webkit-inner-spin-button]:hidden [&::-webkit-calendar-picker-indicator]:m-0 [&::-webkit-calendar-picker-indicator]:block [&::-webkit-calendar-picker-indicator]:w-6 [&::-webkit-calendar-picker-indicator]:h-6 [&::-webkit-calendar-picker-indicator]:opacity-100 w-24"
+        [(ngModel)]="date"
       />
       <label for="">Add Date</label>
     </div>
@@ -74,7 +78,7 @@
     </div>
 
     <button class="rounded-full p-4 border text-white bg-black">
-      <div class="flex justify-center">
+      <div class="flex justify-center" (click)="createNewJurnal()">
         <h1 class="my-auto">Create Journal</h1>
       </div>
     </button>

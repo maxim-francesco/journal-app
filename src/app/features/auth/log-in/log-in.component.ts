@@ -17,8 +17,9 @@ export class LogInComponent {
   email: string = '';
   password: string = '';
 
-  logIn() {
-    this.logInService.logIn(this.email, this.password);
+  async logIn() {
+    const user = await this.logInService.logIn(this.email, this.password);
+    console.log(user.uid);
   }
 
   goToSignUp() {

@@ -12,11 +12,15 @@ export class SignInService {
 
   async signUp(email: string, password: string) {
     try {
-      await this.authService.signUpWithEmailAndPassword(email, password);
-      this.router.navigate(['/main']);
+      const user = await this.authService.signUpWithEmailAndPassword(
+        email,
+        password
+      );
       console.log('Sign up cu succes!');
+      return user;
     } catch (error: any) {
       this.errorMessage = error.message;
+      return undefined;
     }
   }
 

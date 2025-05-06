@@ -12,9 +12,13 @@ export class LogInService {
 
   async logIn(email: string, password: string) {
     try {
-      await this.authService.signInWithEmailAndPassword(email, password);
+      const user = await this.authService.signInWithEmailAndPassword(
+        email,
+        password
+      );
       this.router.navigate(['/main']);
       console.log('Log In cu succes!');
+      return user;
     } catch (error: any) {
       this.errorMessage = error.message;
     }
