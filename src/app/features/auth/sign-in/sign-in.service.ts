@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class SignInService {
-  errorMessage: string = '';
+  // firebase
   private authService = inject(AuthService);
   private router = inject(Router);
 
@@ -19,7 +19,6 @@ export class SignInService {
       console.log('Sign up cu succes!');
       return user;
     } catch (error: any) {
-      this.errorMessage = error.message;
       return undefined;
     }
   }
@@ -27,4 +26,6 @@ export class SignInService {
   get getUserId() {
     return this.authService.getCurrentUser();
   }
+
+  //validators
 }
