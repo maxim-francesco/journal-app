@@ -19,6 +19,7 @@
         id="date"
         name="date"
         type="date"
+        [max]="getMaxDate()"
         class="w-[30px] [&::-webkit-datetime-edit]:hidden [&::-webkit-inner-spin-button]:hidden [&::-webkit-calendar-picker-indicator]:m-0 [&::-webkit-calendar-picker-indicator]:block [&::-webkit-calendar-picker-indicator]:w-6 [&::-webkit-calendar-picker-indicator]:h-6 [&::-webkit-calendar-picker-indicator]:opacity-100 w-24"
         [(ngModel)]="date"
       />

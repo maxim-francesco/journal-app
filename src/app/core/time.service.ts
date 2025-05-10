@@ -4,6 +4,10 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class TimeService {
+  getMaxDate() {
+    return new Date().toISOString().split('T')[0];
+  }
+
   getRelativeTime(dateString: string): string {
     // Parse the input date
     const inputDate = new Date(dateString);

@@ -12,6 +12,8 @@ import { AuthService } from '../../../core/auth/auth.service';
   styleUrl: './jurnal.component.css',
 })
 export class JurnalComponent {
+  //journal
+
   private router = inject(Router);
   private jurnalService = inject(JurnalService);
 
@@ -25,5 +27,11 @@ export class JurnalComponent {
 
   goBack() {
     this.router.navigate(['/main']);
+  }
+
+  //time
+
+  getMaxDate() {
+    return this.jurnalService.getMaxDate();
   }
 }
