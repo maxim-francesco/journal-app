@@ -3,7 +3,27 @@
     <h1 class="text-3xl mb-3">{{ title() }}</h1>
     <h2>{{ date() }}</h2>
   </div>
-  <div class="w-1/3 text-right">
-    <button class="text-3xl">...</button>
+  <div class="w-1/3 text-right relative">
+    <button
+      class="text-3xl text-gray-600 hover:text-gray-900"
+      (click)="toggleMenu()"
+    >
+      ...
+    </button>
+    <div
+      *ngIf="isMenuOpen"
+      class="absolute right-0 mt-2 w-40 bg-white shadow-lg rounded-md z-10"
+    >
+      <button
+        class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+      >
+        Remove
+      </button>
+      <button
+        class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+      >
+        Export to PDF
+      </button>
+    </div>
   </div>
 </div>
