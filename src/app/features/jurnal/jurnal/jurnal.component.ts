@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { JurnalService } from './jurnal.service';
@@ -45,5 +45,14 @@ export class JurnalComponent implements OnInit {
 
   getMaxDate() {
     return this.jurnalService.getMaxDate();
+  }
+
+  //categories
+  selectedCategory = signal<string | null>(null);
+
+  selectCategory(categoryName: string) {
+    this.selectedCategory.set(
+      this.selectedCategory() === categoryName ? null : categoryName
+    );
   }
 }
