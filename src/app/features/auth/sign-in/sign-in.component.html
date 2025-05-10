@@ -23,6 +23,9 @@
         placeholder="Enter your email"
         [(ngModel)]="email"
       />
+      <div class="text-red-500 text-lg font-bold text-center">
+        {{ notValidEmail }}
+      </div>
       <button
         class="rounded-full p-4 border text-white bg-black"
         (click)="goToPassword()"
@@ -85,6 +88,9 @@
         placeholder="Password"
         [(ngModel)]="password"
       />
+      <div class="text-red-500 text-md font-bold text-center">
+        {{ notValidPassword }}
+      </div>
       <button
         class="rounded-full p-4 border text-white bg-black"
         (click)="goToPin()"
@@ -109,11 +115,14 @@
       <input
         id="pin"
         name="pin"
-        type="text"
+        type="password"
         class="rounded-full p-3 border text-center"
         placeholder="Enter your PIN"
         [(ngModel)]="pin"
       />
+      <div class="text-red-500 text-md font-bold text-center">
+        {{ notValidPin }}
+      </div>
       <button
         class="rounded-full p-4 border text-white bg-black"
         (click)="goToMain()"

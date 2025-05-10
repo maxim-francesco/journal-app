@@ -27,6 +27,9 @@
         placeholder="Enter your password"
         [(ngModel)]="password"
       />
+      <div class="text-red-500 text-md font-bold text-center">
+        {{ notValidUser() }}
+      </div>
       <button
         class="rounded-full p-4 border text-white bg-black"
         (click)="logIn()"

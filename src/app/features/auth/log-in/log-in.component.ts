@@ -17,9 +17,13 @@ export class LogInComponent {
   email: string = '';
   password: string = '';
 
+  notValidUser = this.logInService.notValidUser;
+
   async logIn() {
     const user = await this.logInService.logIn(this.email, this.password);
-    console.log(user.uid);
+    if (!user) {
+      this.notValidUser = this.logInService.notValidUser;
+    }
   }
 
   goToSignUp() {

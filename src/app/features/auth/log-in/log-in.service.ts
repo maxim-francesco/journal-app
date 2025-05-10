@@ -1,4 +1,4 @@
-import { inject, Injectable } from '@angular/core';
+import { inject, Injectable, signal } from '@angular/core';
 import { AuthService } from '../../../core/auth/auth.service';
 import { Router } from '@angular/router';
 
@@ -6,9 +6,10 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class LogInService {
-  errorMessage: string = '';
   private authService = inject(AuthService);
   private router = inject(Router);
+
+  notValidUser = signal<string>('');
 
   async logIn(email: string, password: string) {
     try {
@@ -17,10 +18,10 @@ export class LogInService {
         password
       );
       this.router.navigate(['/main']);
-      console.log('Log In cu succes!');
+      this.notValidUser.set('');
       return user;
     } catch (error: any) {
-      this.errorMessage = error.message;
+      this.notValidUser.set('Wrong email or password');
     }
   }
 }
