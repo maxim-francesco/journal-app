@@ -3,12 +3,15 @@ import { RealtimeDatabaseService } from '../../../core/realtime-database.service
 import { Journal } from './jurnal.model';
 import { Observable } from 'rxjs';
 import { AuthService } from '../../../core/auth/auth.service';
+import { ConnectivityService } from '../../../core/connectivity.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class JurnalCrudService {
   private authService = inject(AuthService);
+  private connectivityService = inject(ConnectivityService);
+
   private collectionName = `${this.authService.getUserId()}/journals`;
 
   constructor(private dbService: RealtimeDatabaseService<Journal>) {}
