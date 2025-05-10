@@ -3,6 +3,7 @@ import { CardComponent } from '../card/card.component';
 import { Router } from '@angular/router';
 import { JurnalCrudService } from '../services/jurnal-crud.service';
 import { Journal } from '../services/jurnal.model';
+import { MainService } from './main.service';
 
 @Component({
   selector: 'app-main',
@@ -12,14 +13,13 @@ import { Journal } from '../services/jurnal.model';
 })
 export class MainComponent implements OnInit {
   private router = inject(Router);
-  private jurnalCrudService = inject(JurnalCrudService);
+  private mainService = inject(MainService);
 
-  journals?: Journal[];
+  journals = this.mainService.journals;
 
   ngOnInit(): void {
-    this.jurnalCrudService.getAllJournals().subscribe((r) => {
-      this.journals = r;
-    });
+    this.mainService.ngOnInit();
+    this.journals = this.mainService.journals;
   }
 
   goToNewJurnal() {

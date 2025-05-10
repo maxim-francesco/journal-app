@@ -3,7 +3,7 @@
     <div>
       <h1 class="text-5xl mb-3">Journals</h1>
       <h2 class="text-gray-500 uppercase font-semibold">
-        {{ journals?.length }} Journals
+        {{ journals().length }} Journals
       </h2>
     </div>
     <div
@@ -24,7 +24,7 @@
   </div>
 
   <div class="p-4 space-x-10">
-    @for(journal of journals; track journal.id){
+    @for(journal of journals(); track journal.id){
     <app-card [journal]="journal"></app-card>
     }
   </div>

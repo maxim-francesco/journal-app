@@ -4,6 +4,7 @@ import { Journal } from '../services/jurnal.model';
 import { TimeService } from '../../../core/time.service';
 import { Router } from '@angular/router';
 import { MainService } from '../main/main.service';
+import { JurnalCrudService } from '../services/jurnal-crud.service';
 
 @Component({
   selector: 'app-card',
@@ -14,11 +15,17 @@ import { MainService } from '../main/main.service';
 export class CardComponent {
   //journal
 
+  private jurnalCrudService = inject(JurnalCrudService);
   journal = input.required<Journal>();
 
-  isMenuOpen = false;
+  delete() {
+    this.jurnalCrudService.deleteJournal(this.journal().id!);
+    this.mainService.ngOnInit();
+  }
 
   //menu
+
+  isMenuOpen = false;
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
