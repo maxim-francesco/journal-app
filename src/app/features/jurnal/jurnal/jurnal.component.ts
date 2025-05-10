@@ -20,9 +20,16 @@ export class JurnalComponent {
   title?: string;
   date?: string;
 
+  notValidJurnal?: string;
+
   createNewJurnal() {
-    this.jurnalService.createNewJurnal(this.title!, this.date!, 'a');
-    this.router.navigate(['./main']);
+    if (this.title && this.date) {
+      this.notValidJurnal = '';
+      this.jurnalService.createNewJurnal(this.title!, this.date!, 'a');
+      this.router.navigate(['./main']);
+    } else {
+      this.notValidJurnal = 'Enter title and date for the journal.';
+    }
   }
 
   goBack() {
