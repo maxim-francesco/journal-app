@@ -1,12 +1,24 @@
-import { inject, Injectable } from '@angular/core';
+import { inject, Injectable, OnInit, signal } from '@angular/core';
 import { JurnalCrudService } from '../services/jurnal-crud.service';
 import { Journal } from '../services/jurnal.model';
 import { TimeService } from '../../../core/time.service';
+import { CategoryService } from '../services/categories.service';
+import { Category } from '../services/category.model';
+import { response } from 'express';
 
 @Injectable({
   providedIn: 'root',
 })
-export class JurnalService {
+export class JurnalService implements OnInit {
+  private categoriesService = inject(CategoryService);
+  categories = signal<Category[]>([]);
+
+  ngOnInit(): void {
+    this.categoriesService.getAllCategories().subscribe((response) => {
+      this.categories.set(response);
+    });
+  }
+
   //journal
 
   private jurnalCrudService = inject(JurnalCrudService);

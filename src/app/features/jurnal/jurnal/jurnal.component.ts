@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { JurnalService } from './jurnal.service';
@@ -11,12 +11,17 @@ import { AuthService } from '../../../core/auth/auth.service';
   templateUrl: './jurnal.component.html',
   styleUrl: './jurnal.component.css',
 })
-export class JurnalComponent {
+export class JurnalComponent implements OnInit {
+  ngOnInit(): void {
+    this.jurnalService.ngOnInit();
+  }
+
   //journal
 
   private router = inject(Router);
   private jurnalService = inject(JurnalService);
 
+  categories = this.jurnalService.categories;
   title?: string;
   date?: string;
 

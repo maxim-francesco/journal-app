@@ -1,8 +1,8 @@
 <div class="h-screen bg-purple-900 text-white">
   <div class="flex justify-between p-5 mx-5">
-    <div (click)="goBack()"><-</div>
+    <div (click)="goBack()" class="text-xl font-extrabold">&larr;</div>
     <div class="text-xl">Create Journal</div>
-    <div>...</div>
+    <div></div>
   </div>
   <div class="text-red-500 text-md font-bold text-center h-[10px]">
     {{ notValidJurnal }}
@@ -38,46 +38,16 @@
         <h1 class="text-xl font-bold">Choose Category</h1>
       </div>
       <div class="flex space-x-5 overflow-x-scroll">
+        @for (category of categories(); track category.name) {
         <div class="flex flex-col w-15">
           <div
             class="flex items-center justify-center w-15 h-15 rounded-full bg-pink-500 hover:bg-pink-600 transition-colors cursor-pointer"
           >
             <div class="text-white text-2xl font-bold leading-none">+</div>
           </div>
-          <div class="text-center">Holiday</div>
+          <div class="text-center">{{ category.name }}</div>
         </div>
-        <div class="flex flex-col w-15">
-          <div
-            class="flex items-center justify-center w-15 h-15 rounded-full bg-pink-500 hover:bg-pink-600 transition-colors cursor-pointer"
-          >
-            <div class="text-white text-2xl font-bold leading-none">+</div>
-          </div>
-          <div class="text-center">Holiday</div>
-        </div>
-        <div class="flex flex-col w-15">
-          <div
-            class="flex items-center justify-center w-15 h-15 rounded-full bg-pink-500 hover:bg-pink-600 transition-colors cursor-pointer"
-          >
-            <div class="text-white text-2xl font-bold leading-none">+</div>
-          </div>
-          <div class="text-center">Holiday</div>
-        </div>
-        <div class="flex flex-col w-15">
-          <div
-            class="flex items-center justify-center w-15 h-15 rounded-full bg-pink-500 hover:bg-pink-600 transition-colors cursor-pointer"
-          >
-            <div class="text-white text-2xl font-bold leading-none">+</div>
-          </div>
-          <div class="text-center">Holiday</div>
-        </div>
-        <div class="flex flex-col w-15">
-          <div
-            class="flex items-center justify-center w-15 h-15 rounded-full bg-pink-500 hover:bg-pink-600 transition-colors cursor-pointer"
-          >
-            <div class="text-white text-2xl font-bold leading-none">+</div>
-          </div>
-          <div class="text-center">Holiday</div>
-        </div>
+        }
       </div>
     </div>
 
