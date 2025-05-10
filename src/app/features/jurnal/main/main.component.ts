@@ -34,4 +34,9 @@ export class MainComponent implements OnInit {
   goToNewJurnal() {
     this.router.navigate(['/new-jurnal']);
   }
+
+  //time
+  getTime(date: string) {
+    return this.mainService.getPeriod(date);
+  }
 }

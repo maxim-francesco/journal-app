@@ -27,7 +27,7 @@
     @for(journal of journals; track journal.id){
     <app-card
       [title]="journal.title"
-      [date]="journal.date!"
+      [date]="getTime(journal.date!)"
       (click)="goToPage(journal)"
     ></app-card>
     }
