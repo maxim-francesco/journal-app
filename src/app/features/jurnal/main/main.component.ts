@@ -25,6 +25,8 @@ export class MainComponent implements OnInit {
   }
 
   goToPage(journal: Journal) {
+    console.log('here');
+
     this.mainService.setJournal(journal);
     this.router.navigate(['/page']);
   }

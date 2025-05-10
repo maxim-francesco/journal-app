@@ -2,13 +2,15 @@
   <div class="flex justify-between p-4">
     <div>
       <h1 class="text-5xl mb-3">Journals</h1>
-      <h2 class="text-gray-500 uppercase font-semibold">16 Journals</h2>
+      <h2 class="text-gray-500 uppercase font-semibold">
+        {{ journals?.length }} Journals
+      </h2>
     </div>
     <div
       class="flex items-center justify-center w-15 h-15 rounded-full bg-pink-500 hover:bg-pink-600 transition-colors cursor-pointer"
       (click)="goToNewJurnal()"
     >
-      <div class="text-white text-2xl font-bold leading-none">+</div>
+      <div class="text-white text-3xl font-bold leading-none">+</div>
     </div>
   </div>
 

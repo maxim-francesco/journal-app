@@ -9,7 +9,7 @@ import { AuthService } from '../../../core/auth/auth.service';
 })
 export class JurnalCrudService {
   private authService = inject(AuthService);
-  private collectionName = `${this.authService.getUserId()}/journals`; // Firebase Realtime Database path
+  private collectionName = `${this.authService.getUserId()}/journals`;
 
   constructor(private dbService: RealtimeDatabaseService<Journal>) {}
 

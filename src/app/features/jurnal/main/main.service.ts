@@ -6,7 +6,12 @@ import { Journal } from '../services/jurnal.model';
   providedIn: 'root',
 })
 export class MainService {
+  private jurnalCrudService = inject(JurnalCrudService);
   selectedJournal?: Journal;
+
+  saveToJurnal(journal: Journal) {
+    this.jurnalCrudService.updateJournal(journal.id!, journal);
+  }
 
   setJournal(journal: Journal) {
     this.selectedJournal = journal;

@@ -7,7 +7,10 @@
   <div class="flex justify-between p-5">
     <div class="my-auto text-xl font-bold text-gray-500">DRAFTS</div>
     <div>
-      <button class="py-2 px-4 bg-pink-600 text-white rounded-full text-xl">
+      <button
+        class="py-2 px-4 bg-pink-600 text-white rounded-full text-xl"
+        (click)="saveToJournal()"
+      >
         Save
       </button>
     </div>
@@ -16,6 +19,11 @@
     <h1 class="text-4xl">{{ journal?.title }}</h1>
   </div>
   <div class="p-5">
-    <textarea name="" id="" class="h-screen w-full text-2xl"></textarea>
+    <textarea
+      name="textjurnal"
+      id="textjurnal"
+      class="h-screen w-full text-2xl"
+      [(ngModel)]="textjurnal"
+    ></textarea>
   </div>
 </div>
