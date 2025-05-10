@@ -25,11 +25,7 @@
 
   <div class="p-4 space-x-10">
     @for(journal of journals; track journal.id){
-    <app-card
-      [title]="journal.title"
-      [date]="getTime(journal.date!)"
-      (click)="goToPage(journal)"
-    ></app-card>
+    <app-card [journal]="journal"></app-card>
     }
   </div>
 </div>

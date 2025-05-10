@@ -1,5 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component, HostListener, input } from '@angular/core';
+import { Component, HostListener, inject, input } from '@angular/core';
+import { Journal } from '../services/jurnal.model';
+import { TimeService } from '../../../core/time.service';
+import { Router } from '@angular/router';
+import { MainService } from '../main/main.service';
 
 @Component({
   selector: 'app-card',
@@ -8,10 +12,13 @@ import { Component, HostListener, input } from '@angular/core';
   styleUrl: './card.component.css',
 })
 export class CardComponent {
-  title = input.required<string>();
-  date = input.required<string>();
+  //journal
+
+  journal = input.required<Journal>();
 
   isMenuOpen = false;
+
+  //menu
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
@@ -27,5 +34,23 @@ export class CardComponent {
     ) {
       this.isMenuOpen = false;
     }
+  }
+
+  //time
+
+  private timeService = inject(TimeService);
+
+  getTime() {
+    return this.timeService.getRelativeTime(this.journal().date!);
+  }
+
+  //routing
+
+  private router = inject(Router);
+  private mainService = inject(MainService);
+
+  goToPage() {
+    this.mainService.setJournal(this.journal());
+    this.router.navigate(['/page']);
   }
 }

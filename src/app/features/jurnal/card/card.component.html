@@ -1,7 +1,7 @@
 <div class="flex justify-between p-8 bg-gray-500 rounded-2xl">
-  <div class="w-2/3">
-    <h1 class="text-3xl mb-3">{{ title() }}</h1>
-    <h2>{{ date() }}</h2>
+  <div class="w-2/3" (click)="goToPage()">
+    <h1 class="text-3xl mb-3">{{ journal().title }}</h1>
+    <h2>{{ getTime() }}</h2>
   </div>
   <div class="w-1/3 text-right relative">
     <button
