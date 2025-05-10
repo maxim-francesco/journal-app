@@ -5,6 +5,7 @@ import { TimeService } from '../../../core/time.service';
 import { Router } from '@angular/router';
 import { MainService } from '../main/main.service';
 import { JurnalCrudService } from '../services/jurnal-crud.service';
+import { JournalPdfExportService } from '../services/journal-pdf-export.service';
 
 @Component({
   selector: 'app-card',
@@ -59,5 +60,13 @@ export class CardComponent {
   goToPage() {
     this.mainService.setJournal(this.journal());
     this.router.navigate(['/page']);
+  }
+
+  //export to pdf
+
+  private journalPdfExportService = inject(JournalPdfExportService);
+
+  export() {
+    this.journalPdfExportService.exportJournal(this.journal());
   }
 }
