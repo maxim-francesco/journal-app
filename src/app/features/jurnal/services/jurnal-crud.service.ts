@@ -4,16 +4,12 @@ import { Journal } from './jurnal.model';
 import { Observable } from 'rxjs';
 import { AuthService } from '../../../core/auth/auth.service';
 import { ConnectivityService } from '../../../core/connectivity.service';
-import { CacheService } from '../../../core/cache.service';
-import { JournalCache } from './jurnal-cache.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class JurnalCrudService {
   private authService = inject(AuthService);
-  private connectivityService = inject(ConnectivityService);
-  private cacheService = inject(CacheService<JournalCache[]>);
 
   private collectionName = `${this.authService.getUserId()}/journals`;
 

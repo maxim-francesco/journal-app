@@ -5,6 +5,8 @@ import { TimeService } from '../../../core/time.service';
 import { CategoryService } from '../services/categories.service';
 import { Category } from '../services/category.model';
 import { response } from 'express';
+import { JournalCacheService } from '../services/journal-cache.service';
+import { ConnectivityService } from '../../../core/connectivity.service';
 
 @Injectable({
   providedIn: 'root',
@@ -21,6 +23,8 @@ export class JurnalService implements OnInit {
 
   //journal
 
+  private journalCacheService = inject(JournalCacheService);
+  private connectivityService = inject(ConnectivityService);
   private jurnalCrudService = inject(JurnalCrudService);
 
   createNewJurnal(title: string, date: string, category: string) {
@@ -29,7 +33,12 @@ export class JurnalService implements OnInit {
       date: date,
       category: category,
     };
-    this.jurnalCrudService.addJournal(newJurnal);
+    if (this.connectivityService.isOnline()) {
+      this.journalCacheService.addJournal(newJurnal, true);
+      this.jurnalCrudService.addJournal(newJurnal);
+    } else {
+      this.journalCacheService.addJournal(newJurnal, false);
+    }
   }
 
   //time
