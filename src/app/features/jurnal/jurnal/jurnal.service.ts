@@ -44,10 +44,10 @@ export class JurnalService implements OnInit {
       category: category,
     };
     if (this.connectivityService.isOnline()) {
-      this.journalCacheService.addJournal(newJurnal, true);
+      this.journalCacheService.addJournal(newJurnal, 0);
       this.jurnalCrudService.addJournal(newJurnal);
     } else {
-      this.journalCacheService.addJournal(newJurnal, false);
+      this.journalCacheService.addJournal(newJurnal, 1);
     }
   }
 

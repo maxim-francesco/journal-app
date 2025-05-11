@@ -1,6 +1,6 @@
 import { Journal } from './jurnal.model';
 
 export interface JournalCache {
-  comming: boolean;
+  comming: number;
   journal: Journal;
 }

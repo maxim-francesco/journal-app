@@ -6,6 +6,8 @@ import { Router } from '@angular/router';
 import { MainService } from '../main/main.service';
 import { JurnalCrudService } from '../services/jurnal-crud.service';
 import { JournalPdfExportService } from '../services/journal-pdf-export.service';
+import { JournalCacheService } from '../services/journal-cache.service';
+import { ConnectivityService } from '../../../core/connectivity.service';
 
 @Component({
   selector: 'app-card',
@@ -17,10 +19,16 @@ export class CardComponent {
   //journal
 
   private jurnalCrudService = inject(JurnalCrudService);
+  private journalCacheService = inject(JournalCacheService);
+  private connectivityService = inject(ConnectivityService);
   journal = input.required<Journal>();
 
   delete() {
-    this.jurnalCrudService.deleteJournal(this.journal().id!);
+    if (this.connectivityService.isOnline()) {
+      this.jurnalCrudService.deleteJournal(this.journal().id!);
+    } else {
+      this.journalCacheService.deleteJournal(this.journal());
+    }
     this.mainService.ngOnInit();
   }
 

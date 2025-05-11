@@ -25,34 +25,44 @@ export class MainService implements OnInit {
     } else {
       this.journals.set([]);
       this.journalCacheService.getJournals().forEach((j) => {
-        this.journals().push(j.journal);
+        if (j.comming != 2) {
+          this.journals().push(j.journal);
+        }
       });
     }
   }
 
   private addCachedJournals() {
     const cachedJournals = this.journalCacheService.getJournals();
-    cachedJournals.forEach((j) => {
-      if (j.comming) {
-        this.jurnalCrudService.addJournal(j.journal);
-      }
-    });
+    if (cachedJournals) {
+      cachedJournals.forEach((j) => {
+        if (j.comming == 1) {
+          this.jurnalCrudService.addJournal(j.journal);
+        }
+        if (j.comming == 2) {
+          this.jurnalCrudService.deleteJournal(j.journal.id!);
+        }
+      });
 
-    const journalsNormal: Journal[] = [];
-    cachedJournals.forEach((j) => {
-      journalsNormal.push(j.journal);
-    });
+      const journalsNormal: Journal[] = [];
+      cachedJournals.forEach((j) => {
+        journalsNormal.push(j.journal);
+      });
 
-    this.journalCacheService.setJournals(journalsNormal);
+      this.journalCacheService.setJournals(journalsNormal);
+    }
   }
 
   //journal
   saveToJurnal(journal: Journal) {
     if (this.connectivityService.isOnline()) {
-      this.journalCacheService.addJournal(journal, true);
+      console.log('daca sunt aici imi bag pl din nou');
       this.jurnalCrudService.updateJournal(journal.id!, journal);
+      this.journalCacheService.addJournal(journal, 0);
     } else {
-      this.journalCacheService.addJournal(journal, false);
+      console.log('daca sunt aici imi bag pl');
+
+      this.journalCacheService.addJournal(journal, 1);
     }
   }
 
