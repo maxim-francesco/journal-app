@@ -17,13 +17,33 @@ export class MainService implements OnInit {
 
   ngOnInit(): void {
     if (this.connectivityService.isOnline()) {
+      this.addCachedJournals();
       this.jurnalCrudService.getAllJournals().subscribe((response) => {
         this.journals.set(response);
         this.journalCacheService.setJournals(response);
       });
     } else {
-      this.journals.set(this.journalCacheService.getJournals());
+      this.journals.set([]);
+      this.journalCacheService.getJournals().forEach((j) => {
+        this.journals().push(j.journal);
+      });
     }
+  }
+
+  private addCachedJournals() {
+    const cachedJournals = this.journalCacheService.getJournals();
+    cachedJournals.forEach((j) => {
+      if (j.comming) {
+        this.jurnalCrudService.addJournal(j.journal);
+      }
+    });
+
+    const journalsNormal: Journal[] = [];
+    cachedJournals.forEach((j) => {
+      journalsNormal.push(j.journal);
+    });
+
+    this.journalCacheService.setJournals(journalsNormal);
   }
 
   //journal

@@ -10,17 +10,8 @@ export class JournalCacheService {
   private cacheService = inject(CacheService<JournalCache[]>);
   private readonly cacheKey = 'journals';
 
-  getJournals(): Journal[] {
-    const journals: JournalCache[] | undefined = this.cacheService.get(
-      this.cacheKey
-    );
-    const normalJournals: Journal[] = [];
-    if (journals) {
-      journals.forEach((element: JournalCache) => {
-        normalJournals.push(element.journal);
-      });
-    }
-    return normalJournals;
+  getJournals(): JournalCache[] {
+    return this.cacheService.get(this.cacheKey);
   }
 
   setJournals(journals: Journal[]): void {
@@ -32,17 +23,15 @@ export class JournalCacheService {
     journals.forEach((item) => {
       cachedJournals.push({ comming: false, journal: item });
     });
-    console.log('Processed journals:', cachedJournals);
     return cachedJournals;
   }
 
   addJournal(journal: Journal, online: boolean) {
     const journals = this.getJournals();
-    const cachedJournals = this.processJournals(journals);
-    cachedJournals.push({
+    journals.push({
       comming: !online,
       journal: journal,
     });
-    this.cacheService.set(this.cacheKey, cachedJournals);
+    this.cacheService.set(this.cacheKey, journals);
   }
 }

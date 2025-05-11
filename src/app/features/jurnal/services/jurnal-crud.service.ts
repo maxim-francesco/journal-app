@@ -26,7 +26,7 @@ export class JurnalCrudService {
   }
 
   // Add a new journal entry
-  async addJournal(journal: Omit<Journal, 'id'>): Promise<string> {
+  async addJournal(journal: Journal): Promise<string> {
     return this.dbService.add(this.collectionName, journal);
   }
 
