@@ -1,59 +1,99 @@
-# JournalApp
+# 📝 JournalSphere – Angular Universal Prerendered Journal App (IN WORKING)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.9.
+**JournalSphere** is a fast, SEO-friendly journaling web application built with Angular and server-side rendering (SSR) using Angular Universal. It supports static prerendering for key routes like `/main` and `/new-jurnal`, optimizing load speed and visibility for both users and search engines.
 
-## Development server
+---
 
-To start a local development server, run:
+## 🚀 Features
+
+- ✅ **Angular Universal** support (SSR-ready)
+- ⚡ **Prerendering** for faster first paint and improved SEO
+- 🧱 Built with modern Angular standalone components
+- 🖥️ **Express server** integration for SSR rendering
+- 🧪 Optimized for production deployment
+- 📁 Clean, scalable project structure
+
+---
+
+## 📁 Project Structure
+
+```
+src/
+ ├── app/
+ │   ├── main/              # Main journaling UI
+ │   └── new-jurnal/        # Page to create a new journal
+ ├── index.html
+ ├── main.ts                # Browser entry point
+ ├── main.server.ts         # Server entry point
+ └── server.ts              # Express server config
+```
+
+---
+
+## 🛠️ Getting Started
+
+### 1. Install dependencies
+
+```bash
+npm install
+```
+
+### 2. Run locally in development
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### 3. Build & prerender for production
 
 ```bash
-ng generate component component-name
+npm run build:ssr       # Builds browser + server bundles
+npm run prerender       # Prerenders specified routes
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+> Optional: you can also run directly:
+> ```bash
+> ng run journal-app:prerender
+> ```
 
-```bash
-ng generate --help
+---
+
+## 🔧 Useful Scripts
+
+Add the following to your `package.json` scripts section:
+
+```json
+"scripts": {
+  "build:ssr": "ng build && ng run journal-app:server",
+  "serve:ssr": "node dist/journal-app/server/main.js",
+  "prerender": "ng run journal-app:prerender"
+}
 ```
 
-## Building
+---
 
-To build the project run:
+## 📌 Prerendered Routes
 
-```bash
-ng build
-```
+The following routes are statically prerendered during build:
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+- `/main`
+- `/new-jurnal`
 
-## Running unit tests
+You can modify them in your prerender configuration or script.
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+---
 
-```bash
-ng test
-```
+## 👤 Author
 
-## Running end-to-end tests
+Francesco Maxim 
+Frontend Developer @NTT DATA Romania • Student @UTCN  
+📧 maaximfrancesco@gmail.com
 
-For end-to-end (e2e) testing, run:
+---
 
-```bash
-ng e2e
-```
+## 🏷️ Tags
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+`angular` • `ssr` • `universal` • `typescript` • `seo` • `prerendering` • `webapp` • `journal`
 
-## Additional Resources
+---
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
